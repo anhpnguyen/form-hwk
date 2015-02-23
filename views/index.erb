@@ -5,14 +5,14 @@
 </head>
 <body>
 	<ul>
-		<%= @holidays.each do |day| %>
-			<li class="day <%= day.downcase.gsub(' ','-') %>"><%= day %></li>
+		<% @holidays.each do |day| %>
+			<li class="day <%= day.inspect %>"><%= day %></li>
 		<% end %>
 	</ul>
 	<br>
 	<ul>
-		<%= @birth.each do |item| %>
-			<li class="item <%= item.downcase.gsub(' ','-') %>"><%= item %></li>
+		<% @birth.each do |item| %>
+			<li class="item <%= item.inspect %>"><%= item %></li>
 		<% end %>
 	</ul>
 </body>
