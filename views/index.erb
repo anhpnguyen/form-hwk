@@ -2,20 +2,35 @@
 <html>
 <head>
 	<title>Holiday API</title>
+	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 	<h2>Holidays for current month and year</h2>
-	<ul>
+	<table border='1'>
+		<tr>
+			<th>Name</th>
+			<th>Date</th>
+		</tr>
 		<% @holidays.each do |day| %>
-			<li class="day"><%= day[0]['name'] %> | <%= day[0]['date'] %></li>
+		<tr>
+			<td class="day"><%= day[0]['name'] %></td> 
+			<td><%= day[0]['date'] %></td>
+		</tr>
 		<% end %>
-	</ul>
+	</table>
 	<br>
 	<h2>Holidays for the month, year, and country you were born in</h2>
-	<ul>
-		<% @birth.each do |item| %>
-			<li class="item"><%= item[0]['name'] %> | <%= item[0]['date'] %></li>
+	<table border='1'>
+		<tr>
+			<th>Name</th>
+			<th>Date</th>
+		</tr>
+		<% @birth.each do |day| %>
+		<tr>
+			<td class="day"><%= day[0]['name'] %></td> 
+			<td><%= day[0]['date'] %></td>
+		</tr>
 		<% end %>
-	</ul>
+	</table>
 </body>
 </html>
