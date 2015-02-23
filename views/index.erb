@@ -4,15 +4,17 @@
 	<title>Holiday API</title>
 </head>
 <body>
+	<h2>Holidays for current month and year</h2>
 	<ul>
 		<% @holidays.each do |day| %>
-			<li class="day <%= day.inspect %>"><%= day %></li>
+			<li class="day"><%= day[0]['name'] %> | <%= day[0]['date'] %></li>
 		<% end %>
 	</ul>
 	<br>
+	<h2>Holidays for the month, year, and country you were born in</h2>
 	<ul>
 		<% @birth.each do |item| %>
-			<li class="item <%= item.inspect %>"><%= item %></li>
+			<li class="item"><%= item[0]['name'] %> | <%= item[0]['date'] %></li>
 		<% end %>
 	</ul>
 </body>
