@@ -1,37 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Holiday API</title>
-	<link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-	<p>Hello</p>
-	<h2>Holidays for current month and year</h2>
-	<table border='1'>
-		<tr>
-			<th>Name</th>
-			<th>Date</th>
-		</tr>
-		<% @holidays.each do |day| %>
-		<tr>
-			<td class="day"><%= day[0]['name'] %></td> 
-			<td><%= day[0]['date'] %></td>
-		</tr>
-		<% end %>
-	</table>
-	<br>
-	<h2>Holidays for the month, year, and country you were born in</h2>
-	<table border='1'>
-		<tr>
-			<th>Name</th>
-			<th>Date</th>
-		</tr>
-		<% @birth.each do |day| %>
-		<tr>
-			<td class="day"><%= day[0]['name'] %></td> 
-			<td><%= day[0]['date'] %></td>
-		</tr>
-		<% end %>
-	</table>
-</body>
-</html>
+<h2>Holidays</h2>
+<form>
+    <label for="year">Year</label>
+    <input name="year" value="<%= params[:year] %>" type="number">
+
+    <label for="month">Month</label>
+    <input name="month" value="<%= params[:month] %>" type="number">
+
+    <label for="country">Country</label>
+    <select name="country">
+      <% %w(us gb be br).each do |country| %>
+        <option value="<%= country %>" <%= 'selected="selected"' if params[:country] == country %>><%= country.capitalize %></option>
+      <% end %>
+    </select>
+  	<button type="submit">Submit!</button>
+</form>
+
+<hr>
+
+<table border='1'>
+	<tr>
+		<th>Name</th>
+		<th>Date</th>
+	</tr>
+	<% @holidays.each do |day| %>
+	<tr>
+		<td class="day"><%= day[0]['name'] %></td> 
+		<td><%= day[0]['date'] %></td>
+	</tr>
+	<% end %>
+</table>
+
