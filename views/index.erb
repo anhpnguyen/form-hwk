@@ -1,23 +1,30 @@
-<h2>Holidays</h2>
-<form>
+<div class="container">
+<h2><strong>Holidays</strong></h2>
+<form class="form-horizontal">
+  <div class="form group">
     <label for="year">Year</label>
-    <input name="year" value="<%= params[:year] %>" type="number">
-
+    <input name="year" class="form-control" placeholder="2015" value="<%= params[:year] %>" type="number" required>
+  </div>
+  <div class="form group">
     <label for="month">Month</label>
-    <input name="month" value="<%= params[:month] %>" type="number">
-
+    <input name="month" class="form-control" placeholder="10" value="<%= params[:month] %>" type="number" required>
+  </div>
+  <div class="form group">
     <label for="country">Country</label>
-    <select name="country">
+    <select name="country" class="form-control">
       <% %w(us gb be br).each do |country| %>
-        <option value="<%= country %>" <%= 'selected="selected"' if params[:country] == country %>><%= country.capitalize %></option>
+        <option value="<%= country %>" <%= 'selected="selected"' if params[:country] == country %> required><%= country.capitalize %></option>
       <% end %>
     </select>
-  	<button type="submit">Submit!</button>
+  </div>
+  <div class="form group">
+    <button type="submit" class="btn btn-default">Submit</button>
+  </div>
 </form>
 
-<hr>
+<br><br>
 
-<table border='1'>
+<table class='table table-hover'>
 	<tr>
 		<th>Name</th>
 		<th>Date</th>
@@ -29,4 +36,5 @@
 	</tr>
 	<% end %>
 </table>
+</div>
 

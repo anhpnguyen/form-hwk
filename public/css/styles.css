@@ -1,9 +1,4 @@
-body{
-	background-color: green;
+.container, h2{
+	vertical-align: middle;
 }
-table{
-	width: 50%;
-}
-h2{
-	color: white;
-}
+
