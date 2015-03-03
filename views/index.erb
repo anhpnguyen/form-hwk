@@ -29,12 +29,12 @@
 		<th>Name</th>
 		<th>Date</th>
 	</tr>
+  <% @holidays.each do |day| %>
 	<tr>
-    <% @holidays.each do |day| %>
-		<td class="day"><%= day[0]['name'] %></td> 
+		<td><%= day[0]['name'] %></td> 
 		<td><%= day[0]['date'] %></td>
-    <% end %>
 	</tr>
+  <% end %>
 </table>
 </div>
 
